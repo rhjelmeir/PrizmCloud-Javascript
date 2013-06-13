@@ -143,6 +143,10 @@ Complete html example:
 You can add this code, for example, to a js file and include after the prizmcloud.js or part of a jQuery document ready event or both.
 
 ```
+$('selector').prizmcloud();
+```
+
+```
 jQuery(document).ready(function($) {
     $('#prizmcloud-container').prizmcloud({
         vheight: 400,
@@ -150,6 +154,5 @@ jQuery(document).ready(function($) {
         type: 'flash',
         print_button: 'No'
     });
-    $('#prizmcloud-container-2').prizmcloud();
 });
 ```
