@@ -63,7 +63,31 @@ first_viewer.options = {
 first_viewer.initialize();
 ```
 
-The PrizmCloudViewer function takes two parameters: unique id for the thumbnail wrapper and unique id for the viewer wrapper
+**Instantiate a new Prizm Cloud object**
+
+```
+var first_viewer = new PrizmCloudViewer("documents-for-switching", "prizmcloud-viewer");
+```
+
+The PrizmCloudViewer function takes two parameters: 
+
+* unique id for the thumbnail wrapper and 
+* unique id for the viewer wrapper
+
+**Set your options using:**
+
+```
+element.options = {
+	key: 'value',
+	key: 'value'
+}
+```
+
+**Initialize the viewer**
+
+```
+element.initialize();
+```
 
 ##jQuery
 
