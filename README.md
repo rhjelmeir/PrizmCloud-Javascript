@@ -19,14 +19,12 @@ Your *html* should have the following
 	<div class="prizmcloud-viewer" id="prizmcloud-viewer">...</div>
 	```
 
-You need to include the appropriate js file
-```
-<script src="path/to/js"></script>
-```
-
 ##Plain Javascript
 
-The js file is located at javascript/prizmcloud.js
+The js file is located at javascript/prizmcloud.js.  Add this script to the header or footer of your page.
+```
+<script src="prizmcloud.js"></script>
+```
 
 ###The HTML
 
@@ -49,7 +47,7 @@ The html needs the following
     </div>
 </div>
 ```
-###To Initialize your viewer
+###To initialize your viewer
 
 You can add this code, for example, to a js file and include after the prizmcloud.js or within a window.onload event
 
@@ -77,7 +75,7 @@ The PrizmCloudViewer function takes two parameters:
 **Set your options using:**
 
 ```
-element.options = {
+object.options = {
 	key: 'value',
 	key: 'value'
 }
@@ -86,26 +84,42 @@ element.options = {
 **Initialize the viewer**
 
 ```
-element.initialize();
+object.initialize();
 ```
 
 ##jQuery
 
-The js file is located at jquery/jquery.prizmcloud.js. Add this script to your header or footer of your page.
+The js file is located at jquery/jquery.prizmcloud.js. Add this script to the header or footer of your page.
+
 ```
 <script src="jquery.prizmcloud.js"></script>
 ```
 
 ###The HTML
 
+The html needs the following
+
+* the wrappers as described above
+* the thumbnails need to be an element with:
+	* a class **'doc-link'** and 
+	* a data type of doc-link. 
+
+For example:
+
+```
+<div class="doc-link" data-doc-link="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" ></div>
+or
+<a data-doc-link="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" class="doc-link"></a>
+```
+
 ```
 <div id="prizmcloud-container">
     <div class="documents-for-switching" id="documents-for-switching"> 
-        <a href="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" class="doc-link"><img src="http://prizmcloud.accusoft.com/img/pc-demo-pdf-thumb-1.gif" /></a>
-     <a href="http://www.cdc.gov/phpr/documents/11_225700_A_Zombie_Final.pdf" class="doc-link"><img src="http://prizmcloud.accusoft.com/img/pc-demo-pdf-thumb-3.gif" /></a>
+        <a href="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" data-doc-link="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" class="doc-link active"><img src="http://prizmcloud.accusoft.com/img/pc-demo-pdf-thumb-1.gif" /></a>
+     <a href="http://www.cdc.gov/phpr/documents/11_225700_A_Zombie_Final.pdf" data-doc-link="http://www.cdc.gov/phpr/documents/11_225700_A_Zombie_Final.pdf" class="doc-link"><img src="http://prizmcloud.accusoft.com/img/pc-demo-pdf-thumb-3.gif" /></a>
     </div>
     <div class="prizmcloud-viewer" id="prizmcloud-viewer">
-        <iframe id="viewerBox" width="100%" height="650" frameborder="0" src="http://connect.ajaxdocumentviewer.com/?key=03232898832&viewertype=html5&document=http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf&viewerheight=600&viewerwidth=660&printButton=Yes&toolbarColor=CCCCCC&cache=yes"></iframe>
+        <iframe id="viewerBox" width="460" height="650" frameborder="0" src="http://connect.ajaxdocumentviewer.com/?key=03232898832&viewertype=html5&document=http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf&viewerheight=600&viewerwidth=440&printButton=Yes&toolbarColor=CCCCCC&cache=yes"></iframe>
     </div>
 </div>
 ```
