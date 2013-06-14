@@ -2,7 +2,7 @@
 
 This example allows you to display the Prizm Cloud Viewer with clickable thumbnails which update the base viewer with a new document dynamically. Multiple viewers can be on the same page.
 
-![PrizmCloud Visual Example](https://lh4.googleusercontent.com/q7G-kRCubyCeRVMOeH37t75jJ-YGPgX166dsG9KSuAGGxd-2LmWflox9Duk2pmhUIg=w1600 "Prizm Cloud Visual Example")
+![PrizmCloud Visual Example](PrizmCloud_Demo_for_Js.png "Prizm Cloud Visual Example")
 
 ###Prerequisites
 
