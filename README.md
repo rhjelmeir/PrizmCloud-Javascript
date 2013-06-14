@@ -149,7 +149,7 @@ You can add this code, for example, to a js file and include after the prizmclou
 ```
 $('selector').prizmcloud();
 ```
-
+In jQuery document ready event
 ```
 jQuery(document).ready(function($) {
     $('#prizmcloud-container').prizmcloud({
