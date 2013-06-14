@@ -114,7 +114,7 @@ The html needs the following
 * the wrappers as described above
 * the thumbnails need to be an element with:
 	* a class **'doc-link'** and 
-	* a data type of doc-link. 
+	* a data type of 'doc-link' or a href which contains document url. 
 
 For example:
 
@@ -122,6 +122,8 @@ For example:
 <div class="doc-link" data-doc-link="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" ></div>
 or
 <a data-doc-link="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" class="doc-link"></a>
+or
+<a href="http://www.accusoft.com/docs/prizm-cloud-flash-vs-html5.pdf" class="doc-link"></a>
 ```
 
 Complete html example:

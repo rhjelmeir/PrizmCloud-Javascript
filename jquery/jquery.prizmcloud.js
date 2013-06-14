@@ -14,7 +14,7 @@
  *    </div>
  *    <div "container for viewer"></div>
  * </div>
- * script $ ("your container id").prizmcloud({ key: "", vwidth: 650, vheight: 700 });
+ * script jQuery("your container id").prizmcloud({ key: "", vwidth: 650, vheight: 700 });
  */
 (function ($) {
     $.fn.prizmcloud = function (options) {
@@ -31,15 +31,34 @@
 
                 $(this).on('click', function (e) {
                     e.preventDefault();
-                    var $link = $(this);
+                    var $link = $(this),
+                        docurl = "&document=",
+                        rand_num = Math.floor(Math.random() * 11);
                     // don't reload active document
                     if(!$link.hasClass('active'))
                     {
                         $link.parent().find('.doc-link').removeClass('active');
                         $link.addClass('active');
-                        var docurl = "&document=" + $(this).prop('href');
+                        if($link.data('doc-link') != undefined) 
+                        {
+                            docurl += $link.data('doc-link');
+                        }
+                        else if($link.attr('href') != undefined) 
+                        {
+                            // test for href as backup
+                            docurl += $link.attr('href');
+                        }
+                        var src_url = base_url + opts.key + docurl + "&viewerheight=" + opts.vheight + "&viewerwidth=" + opts.vwidth + "&viewertype=" + opts.type + "&printButton=" + opts.print_button + "&toolbarColor=" + opts.toolbar_color + "&cache=" + opts.cache;
                         
-                        var viewer_iframe = "<iframe id=\"prizmcloud-iframe\" width=\"" + (opts.vwidth + 20) + "\" height=\"" + (opts.vheight + 20) + "\" frameborder=\"0\" seamless src=\"" + base_url + opts.key + docurl + "&viewerheight=" + opts.vheight + "&viewerwidth=" + opts.vwidth + "&viewertype=" + opts.type + "&printButton=" + opts.print_button + "&toolbarColor=" + opts.toolbar_color + "&cache=" + opts.cache + "\"></iframe>"; 
+                        var viewer_iframe = $('<iframe></iframe>', {
+                            'id': "prizmcloud-iframe-" + rand_num,
+                            'width': (opts.vwidth + 20),
+                            'height': (opts.vheight + 20),
+                            'src': src_url,
+                            'frameborder': 0,
+                            'seamless': 'seamless'
+                        });
+                        
                         obj.children(opts.viewer_container).html(viewer_iframe);
                     }
                     return false;
@@ -57,6 +76,15 @@
         toolbar_color: "CCCCCC", // hex color
         documents_container: "#documents-for-switching", // can be a class or id
         viewer_container: "#prizmcloud-viewer",          // can be a class or id
-        cache: "yes"                                     // yes or no
+        cache: "yes"  // yes or no
     };
 }(jQuery));
+jQuery(document).ready(function($) {
+    $('#prizmcloud-container').prizmcloud({
+        vheight: 400,
+        vwidth: 400,
+        type: 'flash',
+        print_button: 'No'
+    });
+    $('#prizmcloud-container-2').prizmcloud();
+});
