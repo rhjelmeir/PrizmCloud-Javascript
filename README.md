@@ -103,7 +103,10 @@ object.initialize();
 
 The js file is located at jquery/jquery.prizmcloud.js. Add this script to the header or footer of your page.
 
+* Requires jQuery 1.7.2 or greater
+
 ```
+<script src="jquery.js"></script>
 <script src="jquery.prizmcloud.js"></script>
 ```
 
